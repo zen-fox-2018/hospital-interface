@@ -57,7 +57,7 @@ class Employee {
                 callback(err, null)
             }else{
                 let newData = data
-                let newUser = new Employee (name, position, username, password, 'login')
+                let newUser = new Employee (name, position, username, password, null)
                 newData.push(newUser)
                 Employee.writeFile('./employee.json',newData,function(err){
                     if(err) {
