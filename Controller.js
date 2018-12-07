@@ -40,7 +40,7 @@ class Controller {
             } else if(isDokter == true){
                 Patient.addPatientHospital(id, name, diagnosa, (err,data) => { //Masih error muncul 2x
                     if(err) View.errWriteData(err)
-                    else if (data != undefined){
+                    else{
                          
                           View.successAddPatient(data)
                         
