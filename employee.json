@@ -1,0 +1,23 @@
+[
+  {
+    "name": "AntonWibisono",
+    "username": "AntonWibisono",
+    "password": "antonbest",
+    "role": "dokter",
+    "isLogin": true
+  },
+  {
+    "name": "DioBrando",
+    "username": "DioBrando",
+    "password": "dio12345",
+    "role": "dokter",
+    "isLogin": false
+  },
+  {
+    "name": "JohnDoe",
+    "username": "JohnDoe",
+    "password": "123654",
+    "role": "perawat",
+    "isLogin": false
+  }
+]
