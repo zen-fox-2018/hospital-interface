@@ -18,7 +18,11 @@ switch (command) {
   case "addPatient":
     EmployeeController.addPatient(options)
     break;
-    
-  default:
+
+  case "logout":
+    EmployeeController.logout()
+    break;
+
+  default: console.log(`Silahkan baca panduan untuk menggunakan sistem ini`);
 
 }

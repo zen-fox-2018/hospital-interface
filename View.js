@@ -15,6 +15,10 @@ class View {
   static successAddPatient(data) {
     console.log(`data pasien berhasil ditambahkan. Total data pasien: ${data}`);
   }
+
+  static logoutSuccess() {
+    console.log(`anda berhasil logout, terima kasih telah menggunakan sistem sederhana ini`);
+  }
 }
 
 module.exports = View

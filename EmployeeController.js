@@ -69,6 +69,17 @@ class EmployeeController {
       }
     })
   }
+
+  static logout() {
+    Employee.logout(function(err, data) {
+      if (err) {
+        View.error(err)
+      }
+      else {
+        View.logoutSuccess()
+      }
+    })
+  }
 }
 
 module.exports = EmployeeController

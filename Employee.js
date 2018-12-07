@@ -176,6 +176,30 @@ class Employee {
       }
     })
   }
+
+  static logout(cb) {
+    Employee.findAll(function(err, dataEmployees) {
+      if (err) {
+        cb(err)
+      }
+      else {
+        let employees = dataEmployees
+        for (let i = 0; i < employees.length; i++) {
+          if (employees[i].isLogin) {
+            employees[i].isLogin = false
+          }
+        }
+        Employee.writeFile(JSON.stringify(employees, null, 2), function(err) {
+          if (err) {
+            cb(err)
+          }
+          else {
+            cb(null)
+          }
+        })
+      }
+    })
+  }
 }
 
 module.exports = Employee
