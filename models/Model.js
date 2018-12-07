@@ -22,7 +22,6 @@ class Model {
       if (!err) {
         data.push(newData)
         Model.save(path, data, function(err) {
-          
           cb(err, data)
         })
       } else {
@@ -30,5 +29,6 @@ class Model {
       }
     })
   }
+
 }
 module.exports = Model

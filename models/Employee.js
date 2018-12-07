@@ -20,7 +20,7 @@ class Employee {
 
     Model.getData(dataEmp, function(err, data) {
       if(!err) {
-        let cek = Employee.checkUname(uname, data)
+        let cek = Employee.findOne('username', uname, data)
         if(cek == true) {
           Model.add(dataEmp, newEmp, function(err, data) {
             cb(err, data, JSON.stringify(newEmp))
@@ -101,22 +101,14 @@ class Employee {
           if(!dokter) {
             cb(`Only doctor have permission to add patient`)
           } else {
-            Model.getData(pathPatient, (err, data) => {
-              if(err) {
-                cb(err)
-              } else {
-                let idAuto = 1
-                if (data.length !== 0) {
-                  idAuto = data[data.length - 1].id + 1
-                } 
-                let newPatient = new Patient(idAuto, name , diag)
-                data.push(newPatient)
-                Model.save(pathPatient, data, function(err) {
-                  cb(err, data)
-                })
-              }
+            let idAuto = 1
+            if (data.length !== 0) {
+              idAuto = data[data.length - 1].id + 1
+            } 
+            let newPatient = new Patient(idAuto, name , diag)
+            Model.add(pathPatient,  newPatient , (err, data) => {
+              cb(err, data)
             })
-    
           }
         }
       }
@@ -165,18 +157,6 @@ class Employee {
     })
   }
 
-  static checkUname(uname, data) {
-    if(data.length == 0) {
-      return true
-    } else {
-      let index = data.findIndex((user) => user.username === uname)
-      if (index == -1) {
-        return true
-      } else {
-        return false
-      }
-    }
-  }
 }
 
 module.exports = Employee
