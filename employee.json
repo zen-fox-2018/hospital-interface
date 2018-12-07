@@ -1,0 +1,14 @@
+[
+  {
+    "username": "budi",
+    "password": "123456",
+    "position": "dokter",
+    "isLogged": false
+  },
+  {
+    "username": "maman",
+    "password": "satusampai6",
+    "position": "dokter",
+    "isLogged": false
+  }
+]
