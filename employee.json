@@ -4,7 +4,7 @@
     "position": "dokter",
     "username": "chris",
     "password": "christian23",
-    "isLogin": false
+    "isLogin": true
   },
   {
     "name": "ANDI",
@@ -18,7 +18,7 @@
     "position": "admin",
     "username": "christian",
     "password": "christian23",
-    "isLogin": true
+    "isLogin": false
   },
   {
     "name": "CACA",

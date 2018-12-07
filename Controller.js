@@ -34,6 +34,7 @@ class Controller {
     }
 
     static addPatient(id, name, diagnosa){
+        let checkBisaAdd = false
         Employee.getData((err,data) => {
             if(err) {
                 View.errGetData(err)
@@ -52,15 +53,22 @@ class Controller {
                 else if(data[tempIndexData].position != 'dokter'){
                     View.erraddPatient()
                 } else {
-                    Patient.addPatient(id, name, diagnosa, (err,data) => {
-                        if(err) View.errWriteData(err)
-                        else{
-                            View.successAddPatient(data)
-                        }
-                    })
+                   checkBisaAdd= true
                 }
             }
+            if(checkBisaAdd) {
+                Patient.addPatientHospital(id, name, diagnosa, (err,data) => { //Masih error muncul 2x
+                    if(err) View.errWriteData(err)
+                    else{
+                        // console.log(data); 
+                         return View.successAddPatient(data)
+                        
+                    }
+                })
+            }
         })
+       
+
     }
 }
 

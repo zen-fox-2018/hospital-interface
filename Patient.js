@@ -22,14 +22,14 @@ class Patient {
                 let result = []
                 data = JSON.parse(data)
                 for(let i = 0; i < data.length ; i++ ) {
-                    result.push(new Pasien (data[i]))
+                    result.push(new Patient (data[i]))
                 }
                 callback(null, result)
             }
         })
     }
 
-    static addPatient(id, name, diagnosis, callback) {
+    static addPatientHospital(id, name, diagnosis, callback) {
         Patient.getAllFile((err,data) => {
             if(err) callback(err,null) 
             else {
@@ -40,10 +40,11 @@ class Patient {
                 })
                 data.push(newPatient)
                 callback(null, data)
-                this.writeFile(JSON.stringify(data), (err) => {
+                this.writeFile(JSON.stringify(data,null,2), (err) => {
                     if(err) callback(err)
                     else callback(null)
                 })
+             
             }
         })
     }
