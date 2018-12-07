@@ -1,40 +1,5 @@
 [
   {
-    "id": 1,
-    "username": "budi",
-    "password": "12345",
-    "role": "dokter",
-    "status": 0
-  },
-  {
-    "id": 2,
-    "username": "andi",
-    "password": "12345",
-    "role": "admin",
-    "status": 0
-  },
-  {
-    "id": 3,
-    "username": "obien",
-    "password": "12345",
-    "role": "dokter",
-    "status": 0
-  },
-  {
-    "id": 4,
-    "username": "aji",
-    "password": "12345",
-    "role": "dokter",
-    "status": 0
-  },
-  {
-    "id": 5,
-    "username": "naruto",
-    "password": "12345",
-    "role": "admin",
-    "status": 0
-  },
-  {
     "id": 6,
     "username": "luffy",
     "password": "$2a$10$nxp/kVhSXks/UQeDyz//X.r81I9ru1.G1INkU7WPpCgjGL2fzGvfe",
