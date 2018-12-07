@@ -64,8 +64,7 @@ class Employee {
             }
         })
     }
-
-    // find all masih belum jalan
+    
     static findAll(callback){
         Employee.readData(function(err, data) {
             if(err) {
@@ -81,13 +80,13 @@ class Employee {
     }
 
     static findOne(input, callback) {
-        Employee.readData(function(err, data) {
+        Employee.findAll(function(err, data) {
             if(err) {
                 callback(err, null);
             } else {
                 for(let i = 0; i < data.length; i++) {
                     if(data[i]._id === input) {
-                        callback(null, data[i]);
+                        return data[i]
                     }
                 }
             }
@@ -179,7 +178,7 @@ class Employee {
                                     if(err) {
                                         callback(err)
                                     } else {
-                                        callback(patientData)
+                                        callback(null)
                                     }
                                 })
                             }
@@ -194,29 +193,25 @@ class Employee {
     }
 
     static logOutEmployee(callback) {
-        Employee.readData(function(err, data) {
+        Employee.findAll(function(err, data) {
             if(err) {
                 callback(err)
             } else {
+
                 let check = false
-                data.map(element => {
-                    if(element._isLogin === true) {
-                        element._isLogin = false;
+                for(let i = 0; i < data.length; i++) {
+                    if(data[i]._isLogin === true) {
+                        data[i]._isLogin = false;
                         check = true
                     }
-                })
-                
-                if(check === false) {
-                    callback("You are not logged in")
-                } else {
-                    Employee.writeFile(data, function(err){
-                        if(err) {
-                            callback(err)
-                        } else {
-                            callback(null)
-                        }
-                    })
                 }
+                Employee.writeFile(data, function(err){
+                    if(err) {
+                        callback(err)
+                    } else {
+                        callback(null)
+                    }
+                })
             }
         })
     }
