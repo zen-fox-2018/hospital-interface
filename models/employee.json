@@ -28,5 +28,11 @@
     "password": "123",
     "role": "officeboy",
     "login": false
+  },
+  {
+    "username": "treya",
+    "password": "123",
+    "role": "admin",
+    "login": false
   }
 ]

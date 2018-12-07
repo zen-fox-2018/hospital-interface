@@ -46,7 +46,7 @@ class EmployeeController {
     static logout(input) {
         EmployeeModel.logout(input, function(err) {
             if(err) {
-                View.displayError('Log out Failed')
+                View.displayError(err)
             } else {
                 View.displaySuccess('Log out success')
             }

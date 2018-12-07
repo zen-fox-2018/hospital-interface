@@ -158,14 +158,17 @@ class Employee {
                 let rawData = data
                 let isLogin = true
                 for(let i = 0; i < rawData.length; i++) {
-                    if(rawData[i].login === true && rawData[i].username === input.username) {
-                            isLogin = false
-                            rawData[i].login = false
+                    if(rawData[i].login === true && rawData[i].username === input) {
+                        isLogin = false
                     }
                 }
-                if(isLogin) {
-                    cb(null)
+
+                if(isLogin === true) {
+                    cb('Username wrong!!')
                 } else {
+                    for(let i = 0; i < rawData.length; i++) {
+                        rawData[i].login = false
+                    }
                     Employee.writeFile(rawData, function(err) {
                         if(err) {
                             cb(err)
@@ -188,51 +191,54 @@ class Employee {
                 cb(obj)
             } else {
                 let employeeData = data
-                let isDokter = false
                 let isLogin = false
+                let isDokter = false
                 for(let i = 0; i < employeeData.length; i++) {
-                    if(employeeData[i].login === false) {
-                        isLogin = false
-                    }
-                    if(employeeData[i].role === 'dokter' && employeeData[i].login === true) {
-                        isDokter = true
+                    if(employeeData[i].login === true) {
+                        isLogin = true
+                        if(employeeData[i].role === 'dokter' && employeeData[i].login === true) {
+                            isDokter = true
+                            break;
+                        }
                     }
                 }
 
-                if(!isDokter) {
-                    cb('You are not a doctor')
-                } else if(!isLogin) {
-                    // console.log(!isLogin)
+                if(!isLogin) {
                     cb('Log in first')
                 } else {
-                    Patient.readFile(function(err, data) {
-                        if(err) {
-                            let obj = {
-                                message : 'Error Read File Patient on registerPatient method',
-                                details : err
-                            }
-                            cb(obj)
-                        } else {
-                            let patientData = data
-                            if(patientData.length < 1) {
-                                var patient = new Patient(0, input.name, input.diagnosis)
-                            } else {
-                                var patient = new Patient(patientData[patientData.length-1].id + 1, input.name, input.diagnosis)
-                            }
-                            patientData.push(patient)
-                            Patient.writeFile(patientData, function(err) {
-                                if(err) {
-                                    let obj = {
-                                        message : 'Error Write File Patient on registerPatient method',
-                                        details : err
-                                    }
-                                    cb(obj)
-                                } else {
-                                    cb(null, patientData.length)
+                    if(!isDokter) {
+                        cb('Only Doctor can add patient!!')
+                    } else {
+                        Patient.readFile(function(err, data) {
+                            if(err) {
+                                let obj = {
+                                    message : 'Error Read File Patient on registerPatient method',
+                                    details : err
                                 }
-                            })
-                        }
-                    })
+                                cb(obj)
+                            } else {
+                                let patientData = data
+                                if(patientData.length < 1) {
+                                    var patient = new Patient(1, input.name, input.diagnosis)
+                                } else {
+                                    var patient = new Patient(patientData[patientData.length-1].id + 1, input.name, input.diagnosis)
+                                }
+                                patientData.push(patient)
+                                Patient.writeFile(patientData, function(err) {
+                                    if(err) {
+                                        let obj = {
+                                            message : 'Error Write File Patient on registerPatient method',
+                                            details : err
+                                        }
+                                        cb(obj)
+                                    } else {
+                                        cb(null, patientData.length)
+                                    }
+                                })
+                            }
+                        })
+                    }
+ 
                 }
             }
         })

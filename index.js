@@ -30,15 +30,13 @@ switch(command) {
     break;
 
     case 'logout' :
-        input = {
-            username: argv[1]
-        }
-        Controller.logout(input)
+        Controller.logout(argv[1])
     break;
     
     case 'findOne' :
         Controller.findOne(argv[1])
     break;
+    
     default:
         Controller.findAll()
     break;
