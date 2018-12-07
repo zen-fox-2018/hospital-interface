@@ -9,6 +9,10 @@ class View {
         console.log(data)
     }
 
+    static failedLogin(err) {
+        console.log(err)
+    }
+
     static showLogin(input) {
         console.log(`User ${input} have successfully logged in`)
     }
@@ -17,8 +21,8 @@ class View {
         console.log(data)
     }
 
-    static showDeleted(data) {
-        console.log(data)
+    static showLoggedOut(data) {
+        console.log("You have successfully logged out!")
     }
 }
 

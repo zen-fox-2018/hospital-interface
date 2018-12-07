@@ -5,7 +5,7 @@
     "_position": "dokter",
     "_username": "ahriii",
     "_password": "987654",
-    "isLogin": false
+    "_isLogin": false
   },
   {
     "_id": 2,
@@ -13,7 +13,7 @@
     "_position": "dokter",
     "_username": "papermintace",
     "_password": "67808754",
-    "isLogin": false
+    "_isLogin": false
   },
   {
     "_id": 3,
@@ -21,6 +21,14 @@
     "_position": "nurse",
     "_username": "terraaa",
     "_password": "3456784",
-    "isLogin": true
+    "_isLogin": false
+  },
+  {
+    "_id": 4,
+    "_name": "luna",
+    "_position": "nurse",
+    "_username": "lunaFreya",
+    "_password": "567976",
+    "_isLogin": false
   }
 ]

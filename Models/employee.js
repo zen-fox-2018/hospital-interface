@@ -8,7 +8,7 @@ class Employee {
         this._position = position;
         this._username = username;
         this._password = password;
-        this.isLogin = false
+        this._isLogin = false
     }
 
     get id() {
@@ -34,6 +34,16 @@ class Employee {
     set password(input) {
         this._password = input
     }
+
+    get isLogin() {
+        return this._isLogin
+    }
+
+    set isLogin(input) {
+        this._isLogin = input
+    }
+
+
 
     static readData(callback) {
         fs.readFile("./package.json", "utf8", function(err, data) {
@@ -84,17 +94,22 @@ class Employee {
         })
     }
 
-    static registerEmployee(name, position, username, password, callback) {
-        Employee.readData(function(err, data) {
+    static registerEmployee(registerObj, callback) {
+        Employee.findAll(function(err, data) {
+
             if(err) {
                 callback(err, null);
             } else {
-                let newData = new Employee(name, position, username, password);
+
+                let id = null;
                 if(data.length === 0) {
-                    newData._id = 1;
+                    id = 1;
                 } else {
-                    newData._id = data[data.length - 1]._id + 1;
+                    id = data[data.length - 1]._id + 1;
                 }
+
+                let newData = new Employee(id, registerObj.name, registerObj.position, registerObj.username, registerObj.password);
+
                 data.push(newData);
 
                 Employee.writeFile(data, function(err) {
@@ -109,19 +124,19 @@ class Employee {
     }
 
     static logIn(username, password, callback) {
-        Employee.readData(function(err, data) {
+        Employee.findAll(function(err, data) {
             if(err) {
                 callback(err);
             } else {
                 let check = false
                 data.forEach(element => {
                     if(username === element._username && password === element._password) {
-                        element.isLogin = true;
+                        element._isLogin = true;
                         check = true;
                     }
                 });
-                
-                if(!check){
+
+                if(check === false) {
                     callback("Wrong username/password!")
                 } else {
                     Employee.writeFile(data, function(err) {
@@ -137,16 +152,15 @@ class Employee {
     }
 
     static addPatients(name, diagnosis, callback) {
-        Employee.readData(function(err, data) {
+        Employee.findAll(function(err, data) {
             if(err) {
                 callback(err);
             } else {
                 let check = false;
                 data.map(element => {
-                    if(element.isLogin === true && element._position === "dokter") {
+                    if(element._isLogin === true && element._position === "dokter") {
                         check = true;
                         Patients.readFilePatients(function(err, patientData) {
-                            
                             if(err) {
                                 callback(err)
                             } else {
@@ -172,18 +186,40 @@ class Employee {
                         })
                     }
                 })
-                if(!check) {
+                if(check === false) {
                     callback("Tidak memiliki akses untuk add patients!")
                 }
             }
         })
     }
 
-    // static deleteUser(input) {
-    //     Employee.findAll(function(err, data) {
-    //         console.log()
-    //     })
-    // }
+    static logOutEmployee(callback) {
+        Employee.readData(function(err, data) {
+            if(err) {
+                callback(err)
+            } else {
+                let check = false
+                data.map(element => {
+                    if(element._isLogin === true) {
+                        element._isLogin = false;
+                        check = true
+                    }
+                })
+                
+                if(check === false) {
+                    callback("You are not logged in")
+                } else {
+                    Employee.writeFile(data, function(err){
+                        if(err) {
+                            callback(err)
+                        } else {
+                            callback(null)
+                        }
+                    })
+                }
+            }
+        })
+    }
 }
 
 module.exports = Employee
