@@ -1,0 +1,26 @@
+[
+  {
+    "_username": "budi",
+    "_password": "budi123",
+    "_role": "dokter",
+    "_login": true
+  },
+  {
+    "_username": "zia17",
+    "_password": "blabla",
+    "_role": "admin",
+    "_login": false
+  },
+  {
+    "_username": "venecia",
+    "_password": "veven",
+    "_role": "receptionis",
+    "_login": false
+  },
+  {
+    "_username": "januarclinton",
+    "_password": "janjan",
+    "_role": "officeboy",
+    "_login": false
+  }
+]
