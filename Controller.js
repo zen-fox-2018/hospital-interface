@@ -38,11 +38,22 @@ class Controller {
             if(err) {
                 View.errGetData(err)
             } else {
-                // let tempIndexData = 0
-                // for(let i = 0 ; i < data.length ;i++){
-                //     if(data[i].isLogin == true)
-                // }
-
+                let tempIndexData = 0
+                let checkTrue = false
+                for(let i = 0 ; i < data.length ;i++){
+                    if(data[i].isLogin == true){
+                        tempIndexData = i
+                        checkTrue =true
+                    }
+                }
+                if(!checkTrue) {
+                    View.erraddPatientNotLog()
+                }
+                else if(data[tempIndexData].position != 'dokter'){
+                    View.erraddPatient()
+                } else {
+                    Patient.addPatient()
+                }
             }
         })
     }

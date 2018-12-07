@@ -13,6 +13,6 @@ switch(argv[0]) {
         Controller.loginUser(argv[1], argv[2])
         break;
     case 'addPatient' :
-        
+        Controller.addPatient(argv[1], argv[2], argv[3])
         break;
 }

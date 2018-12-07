@@ -20,6 +20,13 @@ class View {
         console.log(err);
         
     }
+    static erraddPatient(){
+        console.log("tidak memilii akses untuk add patient");
+    }
+    static erraddPatientNotLog() {
+        console.log('You are not logged in yet');
+        
+    }
 
 }
 
