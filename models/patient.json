@@ -1,0 +1,37 @@
+[
+  {
+    "id": 0,
+    "name": "tarno",
+    "diagnosis": "demam"
+  },
+  {
+    "id": 1,
+    "name": "tarno",
+    "diagnosis": "demam"
+  },
+  {
+    "id": 2,
+    "name": "tarno",
+    "diagnosis": "demam"
+  },
+  {
+    "id": 3,
+    "name": "tarno",
+    "diagnosis": "demam muntaber"
+  },
+  {
+    "id": 4,
+    "name": "jerry",
+    "diagnosis": "stress"
+  },
+  {
+    "id": 5,
+    "name": "jerry",
+    "diagnosis": "stress"
+  },
+  {
+    "id": 6,
+    "name": "jerry",
+    "diagnosis": "stress"
+  }
+]
