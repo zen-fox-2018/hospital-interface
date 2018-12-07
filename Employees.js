@@ -36,7 +36,6 @@ class Employees {
                         isAllOff = false;
                     }
                 }
-                console.log(isAllOff)
                 if (isAllOff === true) {
                     var isCorrect = false;
                     for (let i = 0; i <= data.length - 1; i++) {

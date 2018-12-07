@@ -21,20 +21,31 @@ class Patients {
     })
   }
 
-  static newPatient(id, name, diagnosis, callback) {
+  static newPatient(id, name, diagnosis, employeesList, callback) {
     Patients.create(function(err, patientData) {
         if (err) {
             callback(err, null);
         } else {
-            patientData.push(new Patients(id, name, diagnosis.join(' ')));
-            let thedata = JSON.stringify(patientData, null, 2)
-            Patients.writeFile(thedata, function(err) {
-                if(err) {
-                    callback(err);
-                } else {
-                    callback(null, patientData)
+            let isDoc = false;
+            for (let i = 0; i <= employeesList.length-1; i++) {
+                if (employeesList[i].status === 'on' && employeesList[i].position === "dokter") {
+                    isDoc = true;
                 }
-            })
+            }
+            if (isDoc === true) {
+                patientData.push(new Patients(id, name, diagnosis.join(' ')));
+                let thedata = JSON.stringify(patientData, null, 2)
+                Patients.writeFile(thedata, function(err) {
+                    if(err) {
+                        callback(err)
+                    } else {
+                        callback(null, patientData)
+                    }
+                })
+            } else {
+                callback(false);
+            }
+         
         }
     })
   }

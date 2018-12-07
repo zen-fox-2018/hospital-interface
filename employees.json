@@ -15,7 +15,7 @@
     "username": "agus",
     "password": "09876",
     "position": "receptionist",
-    "status": "on"
+    "status": "off"
   },
   {
     "username": "ali",
@@ -34,5 +34,11 @@
     "password": "87345",
     "position": "dokter",
     "status": "off"
+  },
+  {
+    "username": "amel",
+    "password": "7896",
+    "position": "dokter",
+    "status": "on"
   }
 ]
