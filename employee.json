@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "username": "budi",
+    "password": "12345",
+    "role": "dokter",
+    "status": 0
+  },
+  {
+    "id": 2,
+    "username": "andi",
+    "password": "12345",
+    "role": "admin",
+    "status": 0
+  },
+  {
+    "id": 3,
+    "username": "obien",
+    "password": "12345",
+    "role": "dokter",
+    "status": 0
+  },
+  {
+    "id": 4,
+    "username": "aji",
+    "password": "12345",
+    "role": "dokter",
+    "status": 0
+  },
+  {
+    "id": 5,
+    "username": "naruto",
+    "password": "12345",
+    "role": "admin",
+    "status": 0
+  },
+  {
+    "id": 6,
+    "username": "luffy",
+    "password": "$2a$10$nxp/kVhSXks/UQeDyz//X.r81I9ru1.G1INkU7WPpCgjGL2fzGvfe",
+    "role": "dokter",
+    "status": 0
+  },
+  {
+    "id": 7,
+    "username": "sanji",
+    "password": "$2a$10$EpMSvyoZgqSRClgokXIcYuksJbEl1.Uhaq9vGW97LmEEe8ZvdRLbC",
+    "role": "chef",
+    "status": 0
+  },
+  {
+    "id": 8,
+    "username": "zoro",
+    "password": "$2a$10$auNgJ3JhqpMe9O/J7cd.VepMi/6H4zx0IZvEZ/1F8R6TUDmP2hot6",
+    "role": "ronin",
+    "status": 1
+  }
+]
