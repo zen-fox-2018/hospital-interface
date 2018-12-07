@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Paijo",
+    "diagnosis": "masukAngin"
+  },
+  {
+    "id": 2,
+    "name": "Jojo",
+    "diagnosis": "batuk"
+  },
+  {
+    "id": "4",
+    "name": "Tejo",
+    "diagnosis": "panasdalam"
+  },
+  {
+    "id": "4",
+    "name": "Tejo",
+    "diagnosis": "panasdalam"
+  }
+]
