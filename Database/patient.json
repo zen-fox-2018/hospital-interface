@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "john",
+        "disease": [
+            "batuq"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "john",
+        "disease": [
+            "batuq"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "john",
+        "disease": [
+            "batuq"
+        ]
+    }
+]
