@@ -1,0 +1,26 @@
+[
+  {
+    "_id": 1,
+    "_name": "ahri",
+    "_position": "dokter",
+    "_username": "ahriii",
+    "_password": "987654",
+    "isLogin": false
+  },
+  {
+    "_id": 2,
+    "_name": "maitreya",
+    "_position": "dokter",
+    "_username": "papermintace",
+    "_password": "67808754",
+    "isLogin": false
+  },
+  {
+    "_id": 3,
+    "_name": "terra",
+    "_position": "nurse",
+    "_username": "terraaa",
+    "_password": "3456784",
+    "isLogin": true
+  }
+]
