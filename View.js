@@ -25,6 +25,9 @@ class View {
     }
     static erraddPatientNotLog() {
         console.log('You are not logged in yet');
+    }
+    static successAddPatient(data) {
+        console.log(`data pasien berhasil ditambahkan. Total data pasien : ${data.length}`);
         
     }
 

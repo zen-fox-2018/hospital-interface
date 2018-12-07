@@ -39,7 +39,7 @@ class Patient {
                     diagnosis : diagnosis
                 })
                 data.push(newPatient)
-
+                callback(null, data)
                 this.writeFile(JSON.stringify(data), (err) => {
                     if(err) callback(err)
                     else callback(null)

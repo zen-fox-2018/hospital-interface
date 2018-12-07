@@ -52,7 +52,12 @@ class Controller {
                 else if(data[tempIndexData].position != 'dokter'){
                     View.erraddPatient()
                 } else {
-                    Patient.addPatient()
+                    Patient.addPatient(id, name, diagnosa, (err,data) => {
+                        if(err) View.errWriteData(err)
+                        else{
+                            View.successAddPatient(data)
+                        }
+                    })
                 }
             }
         })
