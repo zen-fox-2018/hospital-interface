@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "name": "Daniel",
+    "diagnosis": "Batuk flu pilek demam"
+  },
+  {
+    "id": "2",
+    "name": "Chris",
+    "diagnosis": "Batuk Kronis"
+  },
+  {
+    "id": "3",
+    "name": "Herman",
+    "diagnosis": "Batuk Sadis"
+  },
+  {
+    "id": "3",
+    "name": "Herman",
+    "diagnosis": "Batuk Batuk"
+  }
+]
