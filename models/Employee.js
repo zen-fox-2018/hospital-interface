@@ -14,8 +14,7 @@ class Employee {
 
   static register(option, cb) {
     let uname = option[0]
-    // let pass = Employee.hashPass(option[0])
-    let pass = option[1]
+    let pass = Employee.hashPass(option[1])
     let role = option[2]
     let newEmp = new Employee(uname, pass, role)
 
@@ -49,10 +48,8 @@ class Employee {
           if (data[i].login == true) {
             cekLogin = true
           } 
-          // console.log('masukkkk')
-          // console.log(bcrypt.compareSync("$2a$10$6ACfw3oaByFPs.DOP2HwketvhFpj5razZKQ8nuawjv1Z09F0ZgqSa",data[i].password))
-          // bcrypt.compareSync(pass,data[i].password)
-          if (data[i].username == uname && data[i].password == pass) {
+         
+          if (data[i].username == uname && bcrypt.compareSync(pass,data[i].password)) {
             isLogin = true
             user = data[i]
             data[i].login = true
