@@ -1,13 +1,14 @@
 const fs = require(`fs`)
 
 class Patient {
-    constructor(name, disease) {
+    constructor(id, name, disease) {
+        this.id = id
         this.name = name
         this.disease = disease
     }
 
     static readFile(cb) {
-        return fs.readFile(`./Database/patient.json`, `utf8`, function (err, data) {            
+        return fs.readFile(`./Database/patient.json`, `utf8`, function (err, data) {
             data = JSON.parse(data)
             if (err) {
                 cb({
@@ -25,7 +26,7 @@ class Patient {
     }
 
     static writeFile(userData, cb) {
-        fs.writeFile(`./Database/patient.json`, JSON.stringify(userData.data), function (err, data) {
+        fs.writeFile(`./Database/patient.json`, JSON.stringify(userData.data, null, 2), function (err, data) {
             if (err) {
                 cb({
                     err: err,
@@ -47,7 +48,7 @@ class Patient {
             let dataResult = data
             if (dataResult.err == null) {
                 dataResult.data.push(
-                    new Patient(patientName, patientDisease)
+                    new Patient(dataResult.data.length + 1, patientName, patientDisease)
                 )
                 Patient.writeFile(dataResult, function (data) {
                     data.err == null ?

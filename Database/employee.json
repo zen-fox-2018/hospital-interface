@@ -1,1 +1,25 @@
-[{"username":"taqi","password":"$2a$10$NGiWd.xshi9qooGpWV.6U.x1iwmCIRgOp1s1kWOW99d8j7Fkg6IHq","role":"dokter","islogin":false},{"username":"ahmad","password":"$2a$10$yDnmQm/FladjPQY73yJLBe16QvmfKfyBZ0Bf9xqmwuuV/vMIDkbW.","role":"dokter","islogin":false}]
+[
+  {
+    "username": "taqi",
+    "password": "$2a$10$NGiWd.xshi9qooGpWV.6U.x1iwmCIRgOp1s1kWOW99d8j7Fkg6IHq",
+    "role": "dokter",
+    "islogin": false
+  },
+  {
+    "username": "ahmad",
+    "password": "$2a$10$yDnmQm/FladjPQY73yJLBe16QvmfKfyBZ0Bf9xqmwuuV/vMIDkbW.",
+    "role": "dokter",
+    "islogin": false
+  },
+  {
+    "username": "dhani",
+    "password": "$2a$10$Hmb3XLaWF3jJwtkNoQIGIeOMWxEAlbGfhczUpGOt2IVryIkYYCHBG",
+    "role": "janitor",
+    "islogin": true
+  },
+  {
+    "username": "login",
+    "password": "$2a$10$gwlvcDxuYaZBFPoA9r7Jv.qNTbiiUPwarD3euoAVM8b5.WlgzDCqS",
+    "islogin": false
+  }
+]

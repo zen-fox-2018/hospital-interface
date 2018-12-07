@@ -27,9 +27,8 @@ class Controller {
     static addPatient(patientName, disease) {
         Employee.addPatient(patientName, disease, function (data) {
             if (data.err == true) {
-                View.errorLogin(data)
+                View.errorAddPatient(data)
             } else {
-                data.isDoctor == true ?
                     Patient.addPatient(patientName, disease, function (data) {
                         data.err == null ?
                             View.succesAddPatient({
@@ -37,8 +36,7 @@ class Controller {
                                 msg: data.msg
                             }) :
                             View.showError(data.msg)
-                    }) :
-                    View.showError(data.msg)
+                    })
             }
         })
     }

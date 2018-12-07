@@ -24,6 +24,11 @@ class View {
 
     }
 
+    static errorAddPatient(data) {
+        console.log(data.msg);
+
+    }
+
     static errorLogout(data) {
         console.log(data.msg);
 

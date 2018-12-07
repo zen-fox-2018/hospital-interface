@@ -1,32 +1,23 @@
 [
     {
-        "name": "taqi",
+        "id": 1,
+        "name": "john",
         "disease": [
-            "batuk"
+            "batuq"
         ]
     },
     {
-        "name": "taqi",
+        "id": 2,
+        "name": "john",
         "disease": [
-            "batuk"
+            "batuq"
         ]
     },
     {
-        "name": "taqi",
+        "id": 3,
+        "name": "john",
         "disease": [
-            "batuk"
-        ]
-    },
-    {
-        "name": "taqi",
-        "disease": [
-            "batuk"
-        ]
-    },
-    {
-        "name": "taqi",
-        "disease": [
-            "batuk"
+            "batuq"
         ]
     }
 ]

@@ -1,5 +1,4 @@
 const fs = require(`fs`)
-const View = require(`../Views/View`)
 const bcrypt = require(`bcryptjs`)
 
 class Employee {
@@ -53,7 +52,7 @@ class Employee {
     }
 
     static writeFile(userData, cb) {
-        fs.writeFile(`./Database/employee.json`, JSON.stringify(userData.data), function (err, data) {
+        fs.writeFile(`./Database/employee.json`, JSON.stringify(userData.data, null, 2), function (err, data) {
             if (err) {
                 cb({
                     err: err,
@@ -139,8 +138,6 @@ class Employee {
                         check = true
                         cb({
                             err: false,
-                            isDoctor: true,
-                            data: data.data,
                             msg: null
                         })
                         break;
