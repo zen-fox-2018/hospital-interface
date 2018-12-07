@@ -1,6 +1,5 @@
 const argv = process.argv.slice(2)
 const Controller = require('./controller.js');
-console.log(argv)
 
 switch (argv[0]) {
     
@@ -24,7 +23,16 @@ switch (argv[0]) {
     let validasi = argv[1]
     let password = argv[2]
     Controller.taskLogin(validasi,password)
-    break
+    break;
+
+    case "addPatient" :
+     let objAdd = {}
+     objAdd.name = argv[2]
+     objAdd.id = argv[1]
+     objAdd.diagnosis = argv[3]
+     Controller.addPatient(objAdd)
+     break;
+     
     default :
     break;
 

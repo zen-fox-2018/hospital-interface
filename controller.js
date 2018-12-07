@@ -18,10 +18,15 @@ class Controller {
                 View.viewData('succes get data')
         })
     }
-    static taskLogin(input) {
-        Model.loginCek(input,function(err,data){ 
+    static taskLogin(user,password) {
+        Model.loginCek(user,password,function(err,data){ 
                console.log(data)
                 View.viewLogin(data)          
+        })
+    }
+    static addPatient(input){
+        Model.addPatient(input,function(err,data){
+                View.viewPatient(data)
         })
     }
 }

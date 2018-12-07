@@ -11,6 +11,9 @@ class View {
             console.log('login tidak berhasil')
         }
     }
+    static viewPatient(input) {
+        console.log('pasien berhasil di tambahkan, total pasien : ',input, ' orang' )
+    }
 }
 
 module.exports =  View

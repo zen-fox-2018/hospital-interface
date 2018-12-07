@@ -2,10 +2,10 @@ const fs =  require("fs")
 
 
 class Patient {
-  constructor(id, name, diagnosis) {
-    this.id = id
-    this.name = name
-    this.diagnosis = diagnosis
+  constructor(obj) {
+    this.id = obj.id
+    this.name = obj.name
+    this.diagnosis = obj.diagnosis
   }
 }
 
@@ -17,6 +17,7 @@ class Employee {
     this.password = input.password
     this.islogin = false
   }
+
 }
 
 class Model {
@@ -67,6 +68,44 @@ class Model {
     })
   }
 
+  static readPatient(callback) {
+    fs.readFile('./patient.json','utf-8',function(err,data){
+      if(err){
+        callback(err,null)
+      }else {
+        callback(null,data)
+      }
+    })
+  }
+
+  static getDataPatient (callback) {
+    
+    Model.readPatient(function(err,data){
+      if(err) {
+        callback(err, null)
+      }else {
+        let rawData = JSON.parse(data)     
+        let result = []
+        for(let i = 0; i < rawData.length; i++) {
+          result.push(new Patient(rawData[i]))
+        }
+        callback(null,result)
+      }
+    })
+
+  }
+  static writeFilePatient (input,callback) {
+   
+    fs.writeFile('./patient.json',input,(function(err){
+      if (err) {
+        callback (err)
+      }
+      else {
+        callback(null)
+      }
+    }))  
+  }
+
   static writeFile (input,callback) {
    
       fs.writeFile('./employee.json',input,(function(err){
@@ -85,23 +124,51 @@ class Model {
           callback(err)
         }else {
           let validasi = false
+          let index = ''
           for(let i = 0; i < data.length; i ++){
-           
-              if(data[i].username === user && data[i].password === password){
+              if(data[i].username == user && data[i].password == password){
                 data[i].islogin =  true
-              }
-                      
-          } 
+                validasi =  true
+                index = i         
+              }                     
+          }        
           if(validasi) {
-            Model.writeFile(data,function(err){
+            Model.writeFile(JSON.stringify(data),function(err){
               if(err){
                 callback(err)
               }else{
-                callback(null)
+                callback(null,data[index].name)
               }
             })
-            callback(null,input.name)
           }
+        }
+      })
+    }
+
+    static addPatient(input,callback) {
+      Model.getDataPatient(function(err,data){
+        if(err){
+          callback(err)
+        }else {
+        //  console.log(data)
+          let rawData = data
+          Model.getData(function(err,data){
+            for(let i = 0; i < data.length; i++){
+              if(data[i].position ==  'dokter' && data[i].islogin ==  true){
+                  rawData.push(new Patient(input))
+                  Model.writeFilePatient(JSON.stringify(rawData),function(err) {
+                      if(err) {
+                        callback(err)
+                      }else {
+                        callback(null)
+                      }
+
+                    })
+                  
+                  }                
+                }
+                callback(null,rawData.length)
+          })
         }
       })
     }
