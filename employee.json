@@ -1,0 +1,30 @@
+[
+  {
+    "name": "CHRIS",
+    "position": "dokter",
+    "username": "chris",
+    "password": "christian23",
+    "isLogin": false
+  },
+  {
+    "name": "ANDI",
+    "position": "admin",
+    "username": "andi",
+    "password": "andyKoh23",
+    "isLogin": false
+  },
+  {
+    "name": "CHRISTIAN",
+    "position": "admin",
+    "username": "christian",
+    "password": "christian23",
+    "isLogin": true
+  },
+  {
+    "name": "CACA",
+    "position": "dokter",
+    "username": "caca",
+    "password": "nono",
+    "isLogin": false
+  }
+]
