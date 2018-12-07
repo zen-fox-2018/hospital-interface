@@ -7,8 +7,56 @@ class Patient {
     }
 
     static readFile(cb) {
-        fs.readFile(`./Database/patient.json`, `utf8`, function(err, data) {
-            
+        return fs.readFile(`./Database/patient.json`, `utf8`, function (err, data) {            
+            data = JSON.parse(data)
+            if (err) {
+                cb({
+                    err: err,
+                    data: null,
+                    msg: `Read Error`
+                })
+            } else {
+                cb({
+                    err: null,
+                    data: data
+                })
+            }
+        })
+    }
+
+    static writeFile(userData, cb) {
+        fs.writeFile(`./Database/patient.json`, JSON.stringify(userData.data), function (err, data) {
+            if (err) {
+                cb({
+                    err: err,
+                    data: null,
+                    msg: `Write Error`
+                })
+            } else {
+                cb({
+                    err: null,
+                    data: data,
+                    msg: `Save data success ${JSON.stringify(userData.data[userData.data.length - 1])} Total Patient: ${userData.data.length}`
+                })
+            }
+        })
+    }
+
+    static addPatient(patientName, patientDisease, cb) {
+        this.readFile(function (data) {
+            let dataResult = data
+            if (dataResult.err == null) {
+                dataResult.data.push(
+                    new Patient(patientName, patientDisease)
+                )
+                Patient.writeFile(dataResult, function (data) {
+                    data.err == null ?
+                        cb(data) :
+                        cb(data)
+                })
+            } else {
+                cb(data)
+            }
         })
     }
 }

@@ -16,8 +16,11 @@ switch (command) {
         break;
 
     case `addPatient`:
-        console.log(options[0], options[1], options.slice(2));
         Controller.addPatient(options[1], options.slice(2))
+        break;
+    
+    case `logout`:
+        Controller.logout(options[0])
         break;
 }
 

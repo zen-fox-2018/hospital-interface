@@ -1,5 +1,6 @@
 const fs = require(`fs`)
 const View = require(`../Views/View`)
+const bcrypt = require(`bcryptjs`)
 
 class Employee {
     constructor(username, password, role) {
@@ -8,7 +9,8 @@ class Employee {
         this.role = role
         this.islogin = false
     }
-    
+
+
     static register(username, password, role, cb) {
         this.readFile(function (data) {
             if (data.err == null) {
@@ -19,8 +21,12 @@ class Employee {
                         msg: `Username sudah ada`
                     })
                 } else {
-                    data.data.push(new Employee(username, password, role))
-                    Employee.writeFile(data, cb)
+                    const saltRounds = 10
+                    //TODO:
+                    bcrypt.hash(password, saltRounds, function (err, hash) {
+                        data.data.push(new Employee(username, hash, role))
+                        Employee.writeFile(data, cb)
+                    });
                 }
             } else {
                 cb(data)
@@ -80,26 +86,29 @@ class Employee {
                 let loginStatus = Employee.findLogin(data.data)
                 if (findData) {
                     if (loginStatus == null) {
-                        if (findData.password == password) {
-                            let resultData = data
-                            for (let i = 0; i < resultData.data.length; i++) {
-                                if (resultData.data[i].username == username) {
-                                    resultData.data[i].islogin = true
+                        bcrypt.compare(password, findData.password, function (err, res) {
+                            if (res == true) {
+                                let resultData = data
+                                for (let i = 0; i < resultData.data.length; i++) {
+                                    if (resultData.data[i].username == username) {
+                                        resultData.data[i].islogin = true
+                                    }
                                 }
-                            }                            
-                            Employee.writeFile(resultData, function(params) {})
-                            cb({
-                                err: null,
-                                data: findData,
-                                msg: `${findData.username} logged in successfully`
-                            })
-                        } else {
-                            cb({
-                                err: true,
-                                data: data,
-                                msg: `password invalid`
-                            })
-                        }
+                                Employee.writeFile(resultData, function (params) { })
+                                cb({
+                                    err: null,
+                                    data: findData,
+                                    msg: `${findData.username} logged in successfully`
+                                })
+                            } else {
+                                cb({
+                                    err: true,
+                                    data: data,
+                                    msg: `password invalid`
+                                })
+                            }
+                        });
+
                     } else {
                         cb({
                             err: true,
@@ -123,14 +132,30 @@ class Employee {
     static addPatient(patientName, disease, cb) {
         this.readFile(function (data) {
             if (data.err == null && Employee.findLogin(data.data)) {
+                //TODO:
+                let check = false
                 for (let i = 0; i < data.data.length; i++) {
                     if (data.data[i].islogin == true && data.data[i].role == `dokter`) {
-                        
+                        check = true
+                        cb({
+                            err: false,
+                            isDoctor: true,
+                            data: data.data,
+                            msg: null
+                        })
+                        break;
                     }
                 }
-                
+                check == false &&
+                    cb({
+                        err: true,
+                        isDoctor: false,
+                        data: data.data,
+                        msg: `Tidak memiliki akses untuk add patient`
+                    })
+
             } else {
-                cb(data)
+                cb(true)
             }
         })
     }
@@ -142,6 +167,28 @@ class Employee {
             }
         }
         return null
+    }
+
+    static logout(username, cb) {
+        this.readFile(function (data) {
+            if (data.err == null) {
+                let dataResult = data
+                for (let i = 0; i < dataResult.data.length; i++) {
+                    if (dataResult.data[i].username == username) {
+                        dataResult.data[i].islogin = false
+                        break;
+                    }
+                }
+                Employee.writeFile(dataResult, function (data) {
+                    cb({
+                        err: null,
+                        msg: `Success logout ${username}`
+                    })
+                })
+            } else {
+                cb(data)
+            }
+        })
     }
 
 }

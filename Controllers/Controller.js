@@ -5,11 +5,11 @@ const View = require(`../Views/View`)
 class Controller {
 
     static register(username, password, role) {
-        Employee.register(username, password, role, function(data) {
+        Employee.register(username, password, role, function (data) {
             if (data.err) {
                 View.showError(data)
             } else {
-                View.showData(data.msg)   
+                View.showData(data.msg)
             }
         })
     }
@@ -29,13 +29,32 @@ class Controller {
             if (data.err == true) {
                 View.errorLogin(data)
             } else {
-                View.showData(data.msg)
+                data.isDoctor == true ?
+                    Patient.addPatient(patientName, disease, function (data) {
+                        data.err == null ?
+                            View.succesAddPatient({
+                                data: data,
+                                msg: data.msg
+                            }) :
+                            View.showError(data.msg)
+                    }) :
+                    View.showError(data.msg)
             }
         })
     }
 
     static delete() {
         Employee.delete()
+    }
+
+    static logout(username) {
+        Employee.logout(username, function (data) {
+            if (data.err == true) {
+                View.errorLogout(data)
+            } else {
+                View.successLogout(data)
+            }
+        })
     }
 
 }
