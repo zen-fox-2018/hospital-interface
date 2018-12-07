@@ -1,0 +1,26 @@
+[
+    {
+        "username": "aawdzwiz",
+        "password": "tawdkajawd",
+        "role": "dokter",
+        "islogin": false
+    },
+    {
+        "username": "aawawdzwiz",
+        "password": "tawdkajawd",
+        "role": "dokter",
+        "islogin": false
+    },
+    {
+        "username": "aawdzwiz2",
+        "password": "tawdkajawd",
+        "role": "dokter",
+        "islogin": false
+    },
+    {
+        "username": "taqi",
+        "password": "1",
+        "role": "dokter",
+        "islogin": true
+    }
+]
