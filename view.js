@@ -1,4 +1,10 @@
 class View {
+
+    static showMessageAddPatient(data){
+        //data ini array of objek class
+        console.log(`data pasien berhasil ditambahkan. Total data pasien : ${data.length}`)
+    }
+
     static showAllTheEmployee(processedData){
         console.log(`List pegawai di RS Hacktiv8 :`)
         for (let i = 0; i < processedData.length; i++){

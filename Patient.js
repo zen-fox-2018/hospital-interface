@@ -53,16 +53,19 @@ class Patient {
       else {
         let processedData = data
         //newPatient ini adalah objek literal
-        processedData.push(new Patient(newPatient.id, newPatient.name, newPatient.diagnosis))
-        Patient.writeDocument(processedData, function(err){
+        // console.log(newPatient)
+        processedData.push(new Patient(newPatient.patientId, newPatient.patientName, newPatient.patientDiagnosis))
+        // console.log(processedData)
+        let stringified = JSON.stringify(processedData, null, 2)
+        Patient.writeDocument(stringified, function(err){
           if(err){
-            callback(err)
+            callback(err, null)
           }
           else{
-            callback(null)
+            callback(null, processedData)
           }
         })
-        callback(null, processedData)
+        // callback(null, processedData)
       }
     })
   }

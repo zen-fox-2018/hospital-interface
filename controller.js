@@ -10,12 +10,19 @@ class HospitalController {
             patientName : patientName,
             patientDiagnosis : patientDiagnosis
         }
-        Patient.addNewPatient(obj, function(err, data){
+        Patient.addNewPatient(obj, function(err){
             if(err){
                 View.showErrorMessage(err)
             }
             else {
-                
+               Patient.showTheDocument(function(err,data){
+                   if(err){
+                       View.showErrorMessage(err)
+                   }
+                   else {
+                       View.showMessageAddPatient(data)
+                   }
+               }) 
             }
         })
     }
