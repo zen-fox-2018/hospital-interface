@@ -1,3 +1,5 @@
+const fs = reqiure('fs')
+
 class Patient {
   constructor(id, name, diagnosis) {
     this.id = id
@@ -13,4 +15,6 @@ class Employee {
     this.username = username
     this.password = password
   }
+
 }
+
