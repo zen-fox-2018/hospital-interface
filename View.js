@@ -20,14 +20,12 @@ class View {
         console.log(err);
         
     }
-    static erraddPatient(){
-        console.log("tidak memilii akses untuk add patient");
+    static erraddPatient(err){
+        console.log(err);
     }
-    static erraddPatientNotLog() {
-        console.log('You are not logged in yet');
-    }
+    
     static successAddPatient(data) {
-        console.log(`data pasien berhasil ditambahkan. Total data pasien : ${data.length}`);
+        console.log(`data pasien berhasil ditambahkan. Total data pasien : ${data}`);
         
     }
 

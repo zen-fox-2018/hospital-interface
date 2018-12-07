@@ -34,41 +34,21 @@ class Controller {
     }
 
     static addPatient(id, name, diagnosa){
-        let checkBisaAdd = false
-        Employee.getData((err,data) => {
-            if(err) {
-                View.errGetData(err)
-            } else {
-                let tempIndexData = 0
-                let checkTrue = false
-                for(let i = 0 ; i < data.length ;i++){
-                    if(data[i].isLogin == true){
-                        tempIndexData = i
-                        checkTrue =true
-                    }
-                }
-                if(!checkTrue) {
-                    View.erraddPatientNotLog()
-                }
-                else if(data[tempIndexData].position != 'dokter'){
-                    View.erraddPatient()
-                } else {
-                   checkBisaAdd= true
-                }
-            }
-            if(checkBisaAdd) {
+        Employee.cekDokter((isDokter, status) => {
+            if(status){
+                View.erraddPatient(status)
+            } else if(isDokter == true){
                 Patient.addPatientHospital(id, name, diagnosa, (err,data) => { //Masih error muncul 2x
                     if(err) View.errWriteData(err)
-                    else{
-                        // console.log(data); 
-                         return View.successAddPatient(data)
+                    else if (data != undefined){
+                         
+                          View.successAddPatient(data)
                         
                     }
                 })
             }
         })
-       
-
+        
     }
 }
 

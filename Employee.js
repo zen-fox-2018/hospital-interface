@@ -68,7 +68,32 @@ class Employee {
         })
     }
 
-    
+    static cekDokter(callback) {
+
+        Employee.getData((err,data) => {
+            if(err) {
+                View.errGetData(err)
+            } else {
+                let tempIndexData = 0
+                let checkTrue = false
+                for(let i = 0 ; i < data.length ;i++){
+                    if(data[i].isLogin == true){
+                        tempIndexData = i
+                        checkTrue =true
+                    }
+                }
+                if(!checkTrue) {
+                    callback(false,'You are not logged in yet')
+                }
+                else if(data[tempIndexData].position != 'dokter'){
+                    callback(false,' tidak memilii akses untuk add patient')
+                } else {
+                    callback(true,null)
+                }
+            }
+            
+        })
+    }
     static getLogin(myUsername, myPassword, callback) {
         Employee.getData((err,data) => {
             if(err) callback(err, null ,null)
