@@ -24,6 +24,16 @@ class View {
   static showSuccessLogin(username){
     console.log('user '+username+' logged in successfully');
   }
+
+  static showWhoIsLogin(status, username, role){
+    if (status === true) {
+      console.log(username+' : '+role+' sedang login');
+    }
+  }
+
+  static showFailAddPatient(){
+    console.log('tidak memiliki akses untuk add patients!');
+  }
 }
 
 module.exports = View

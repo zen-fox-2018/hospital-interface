@@ -26,6 +26,42 @@ class Controller{
     })
   }
 
+  static whoIsLogin(){
+    Model.Employee.whoIsLogin(function(err, status, username, role){
+      if (err) {
+        View.showGeneralError(err);
+      }
+      else {
+        View.showWhoIsLogin(status,username,role);
+      }
+    })
+  }
+
+  static addPatient(newPatient){
+    Model.Employee.whoIsLogin(function(err, status, username, role){
+      if (err) {
+        View.showGeneralError(err);
+      }
+      else {
+        if (role === 'dokter') {
+          console.log(Model.patient,addPatient);
+          Model.patient.addPatient(newPatient, function(err, data){
+            if (err) {
+              View.showGeneralError(err);
+            }
+            else {
+
+            }
+          });
+          //else role dokter
+        }else {
+          View.showFailAddPatient();
+        }
+      }
+    })
+  }
+
+
 }
 
 module.exports = Controller;

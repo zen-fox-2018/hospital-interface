@@ -18,6 +18,21 @@ switch (command[0]) {
     var password = command[2];
     Controller.login(username, password);
     break;
+  case 'whoIsLogin':
+    Controller.whoIsLogin();
+    break;
+  case 'addPatient':
+    var joinCommand = '';
+    for (var i = 3; i < command.length; i++) {
+      joinCommand += command[i] + ' ';
+    }
+    var newPatient ={
+      id : command[1],
+      name : command[2],
+      diagnose : joinCommand
+    }
+    Controller.addPatient(newPatient);
+    break;
   default:
 
 }
