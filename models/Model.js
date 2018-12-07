@@ -30,5 +30,17 @@ class Model {
     })
   }
 
+  static findOne(field, value, data) {
+    if(data.length == 0) {
+      return true
+    } else {
+      let index = data.findIndex((user) => user[field] == value)
+      if (index == -1) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
 }
 module.exports = Model

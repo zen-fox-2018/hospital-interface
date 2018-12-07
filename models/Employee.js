@@ -1,6 +1,6 @@
 const Model = require('./Model') 
 const dataEmp = './database/employee.json'
-
+const bcrypt = require('bcryptjs')
 const Patient = require('./Patient')
 const pathPatient = './database/patient.json'
 
@@ -14,13 +14,14 @@ class Employee {
 
   static register(option, cb) {
     let uname = option[0]
+    // let pass = Employee.hashPass(option[0])
     let pass = option[1]
     let role = option[2]
     let newEmp = new Employee(uname, pass, role)
 
     Model.getData(dataEmp, function(err, data) {
       if(!err) {
-        let cek = Employee.findOne('username', uname, data)
+        let cek = Model.findOne('username', uname, data)
         if(cek == true) {
           Model.add(dataEmp, newEmp, function(err, data) {
             cb(err, data, JSON.stringify(newEmp))
@@ -48,6 +49,9 @@ class Employee {
           if (data[i].login == true) {
             cekLogin = true
           } 
+          // console.log('masukkkk')
+          // console.log(bcrypt.compareSync("$2a$10$6ACfw3oaByFPs.DOP2HwketvhFpj5razZKQ8nuawjv1Z09F0ZgqSa",data[i].password))
+          // bcrypt.compareSync(pass,data[i].password)
           if (data[i].username == uname && data[i].password == pass) {
             isLogin = true
             user = data[i]
@@ -155,6 +159,11 @@ class Employee {
         }
       }
     })
+  }
+
+  static hashPass(pass){
+    let salt = bcrypt.genSaltSync(10)
+    return bcrypt.hashSync(pass, salt)
   }
 
 }

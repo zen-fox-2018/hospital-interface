@@ -1,14 +1,14 @@
 [
   {
-    "username": "budi9",
-    "password": "budi123",
+    "username": "budi",
+    "password": "$2a$10$6ACfw3oaByFPs.DOP2HwketvhFpj5razZKQ8nuawjv1Z09F0ZgqSa",
     "role": "dokter",
-    "login": true
+    "login": false
   },
   {
-    "username": "angga",
-    "password": "54321",
-    "role": "admin",
-    "login": false
+    "username": "budi9",
+    "password": "12345",
+    "role": "dokter",
+    "login": true
   }
 ]
