@@ -7,4 +7,7 @@ switch(command[0]) {
     case "login":
     Controller.login(command[1], command[2]);
     break;
+    case "addPatient":
+    let diagnosis = command.slice(3);
+    Controller.addPatient(command[1], command[2], diagnosis);
 }

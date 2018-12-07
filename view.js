@@ -15,5 +15,11 @@ class View {
     static cantLogin() {
         console.log("max login reached")
     }
+    static addPatientSucceed(list) {
+        console.log(`data pasien berhasil ditambahkan. Total data pasien ${list.length}`)
+    }
+    static addPatientFailed() {
+        console.log("tidak memiliki akses untuk add patient")
+    }
 }
 module.exports = View

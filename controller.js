@@ -22,5 +22,15 @@ class Controller {
             }
         })
     }
+    static addPatient(id, name, diagnosis) {
+        Patients.newPatient(id, name, diagnosis, function(err, listPatient) {
+            if (err) {
+                View.addPatientFailed();
+            } else {
+                View.addPatientSucceed(listPatient);
+            }
+        })
+    }
 }
+
 module.exports = Controller;

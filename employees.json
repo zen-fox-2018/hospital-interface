@@ -3,7 +3,7 @@
     "username": "angga",
     "password": "54321",
     "position": "admin",
-    "status": "on"
+    "status": "off"
   },
   {
     "username": "budi",
@@ -15,12 +15,24 @@
     "username": "agus",
     "password": "09876",
     "position": "receptionist",
-    "status": "off"
+    "status": "on"
   },
   {
     "username": "ali",
     "password": "567890",
     "position": "admin",
+    "status": "off"
+  },
+  {
+    "username": "celyn",
+    "password": "19066",
+    "position": "dokter",
+    "status": "off"
+  },
+  {
+    "username": "adi",
+    "password": "87345",
+    "position": "dokter",
     "status": "off"
   }
 ]
