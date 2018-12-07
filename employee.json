@@ -3,13 +3,13 @@
     "username": "budi",
     "password": "123",
     "role": "dokter",
-    "logIn": false
+    "logIn": true
   },
   {
     "username": "theresia",
     "password": "12345",
     "role": "dokter",
-    "logIn": true
+    "logIn": false
   },
   {
     "username": "thania",

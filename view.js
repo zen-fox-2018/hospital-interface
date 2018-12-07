@@ -13,12 +13,36 @@ class View {
   }
 
   static succeedLogin(data) {
-    if(!data) {
-      console.log('Wrong user / password');
-    } else if (data === undefined) {
-      console.log('last user has not logged out yet');
-    } else {
+    if (!data.issue) {
       console.log(`user '${data.username}' successfully logged in`);
+    } else {
+      switch (data.issue) {
+      case 'invalidCredentials':
+        console.log('Wrong user / password');
+        break;
+      case 'alreadyLoggedIn':
+        console.log('last user has not logged out yet');
+        break;
+      default:
+        console.log('Unknown login issue');
+        break;
+      }
+    }
+  }
+
+  static succeedAddPatient(data) {
+    if (data === undefined) {
+      console.log(`You dont have permission to add a patient's data`);
+    } else {
+      console.log(`Patient's data has been successfully added. Total Patients: ${data.length}`);
+    }
+  }
+
+  static succeedLogout(data) {
+    if(data === undefined) {
+      console.log('Wrong username / password. You cannot log out');
+    } else {
+      console.log(`'${data.username}' has successfully logged out`);
     }
   }
 }

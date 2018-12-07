@@ -53,35 +53,54 @@ class Employee {
       if (err) {
         callback(err, null);
       } else {
-        let isLogin = false;
-        let counter = 0;
         for (let i = 0; i < data.length; i++) {
+          //only one user can login at a time
           if (data[i].logIn === true) {
-            counter++;
+            data.issue = 'alreadyLoggedIn';
+            callback(null, data);
+            return;
           }
-          if (data[i].username === username && data[i].password === password && counter == 0) {
-            var people = data[i];
+          //check if the username and password is correct
+          if (data[i].username === username && data[i].password === password) {
             data[i].logIn = true;
-            isLogin = true;
+            this.writeFile(JSON.stringify(data, null, 2), (err) => {
+              if (err) {
+                callback(err, null);
+              } else {
+                callback(null, data[i]);
+              }
+            })
+            return;     //terminate function
           }
         }
-        if (isLogin) {
-          this.writeFile(JSON.stringify(data, null, 2), (err) => {
-            if (err) {
-              callback(err, null);
-            } else {
-              callback(null, people);
-            }
-          })
-        } else {
-          if (counter > 0) {
-            callback(null, false);
-          } else {
-            callback(null);
-          }
-        }
+        //if no matching username and password
+        data.issue = 'invalidCredentials';
+        callback(null, data);
       }
     })
+  }
+
+  static logOutAccount(username, password, callback) {
+    this.readFile((err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].username === username && data[i].password === password && data[i].logIn) {
+            data[i].logIn = false;
+            this.writeFile(JSON.stringify(data, null, 2), (err) => {
+              if (err) {
+                callback(err, null);
+              } else {
+                callback(null, data[i]);
+              }
+            })
+            return;
+          }
+        }
+        callback(null);
+      }
+    }) 
   }
 
 

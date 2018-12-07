@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "ririn",
+    "diagnosis": [
+      "demam",
+      "flu"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "ririn",
+    "diagnosis": [
+      "demam"
+    ]
+  }
+]

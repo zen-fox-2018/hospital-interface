@@ -1,5 +1,5 @@
-const Employee = require('./employee.js');
-const Patient = require('./patient.js');
+const Employee = require('./models/employee.js');
+const Patient = require('./models/patient.js');
 const View = require('./view.js');
 
 class Controller {
@@ -25,9 +25,23 @@ class Controller {
   }
 
   static patientSystem(id, name, sickness) {
-    Patient.addPatient(id, name, sickness);
-    console.log(id, name, sickness);
-    
+    Patient.addPatient(id, name, sickness, (err, data) => {
+      if (err) {
+        View.displayError(err);
+      } else {
+        View.succeedAddPatient(data);
+      }
+    });
+  }
+
+  static logOutSystem(username, password) {
+    Employee.logOutAccount(username, password, (err, data) => {
+      if (err) {
+        View.displayError(err);
+      } else {
+        View.succeedLogout(data);
+      }
+    })
   }
 
 }

@@ -11,5 +11,6 @@ switch(argv[0]) {
   case 'addPatient':
     Controller.patientSystem(argv[1], argv[2], argv.slice(3));
     break;
-
+  case 'logout':
+    Controller.logOutSystem(argv[1], argv[2]);
 }
