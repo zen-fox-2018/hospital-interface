@@ -1,0 +1,26 @@
+[
+  {
+    "username": "budi",
+    "password": "123",
+    "role": "dokter",
+    "logIn": true
+  },
+  {
+    "username": "theresia",
+    "password": "12345",
+    "role": "dokter",
+    "logIn": false
+  },
+  {
+    "username": "thania",
+    "password": "1234",
+    "role": "admin",
+    "logIn": false
+  },
+  {
+    "username": "nickson",
+    "password": "12345",
+    "role": "officeboy",
+    "logIn": false
+  }
+]
