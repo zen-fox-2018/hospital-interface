@@ -1,0 +1,37 @@
+[
+  {
+    "name": "budi",
+    "username": "budi",
+    "password": "123456",
+    "role": "dokter",
+    "status": true
+  },
+  {
+    "name": "angga",
+    "username": "angga",
+    "password": "54321",
+    "role": "admin",
+    "status": false
+  },
+  {
+    "name": "reza",
+    "username": "reza",
+    "password": "54321",
+    "role": "perawat",
+    "status": false
+  },
+  {
+    "name": "dian",
+    "username": "dian",
+    "password": "54321",
+    "role": "nurse",
+    "status": false
+  },
+  {
+    "name": "joko",
+    "username": "joko",
+    "password": "23e35",
+    "role": "OB",
+    "status": false
+  }
+]
