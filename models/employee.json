@@ -1,0 +1,38 @@
+[
+  {
+    "username": "januarsmad",
+    "password": "123",
+    "role": "dokter",
+    "login": false
+  },
+  {
+    "username": "elispao",
+    "password": "123",
+    "role": "admin",
+    "login": false
+  },
+  {
+    "username": "agusman",
+    "password": "123",
+    "role": "satpam",
+    "login": false
+  },
+  {
+    "username": "pauluslae",
+    "password": "123",
+    "role": "satpam",
+    "login": false
+  },
+  {
+    "username": "inyong",
+    "password": "123",
+    "role": "officeboy",
+    "login": false
+  },
+  {
+    "username": "treya",
+    "password": "123",
+    "role": "admin",
+    "login": false
+  }
+]
