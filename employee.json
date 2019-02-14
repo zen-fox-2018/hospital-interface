@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "name": "patria",
+    "username": "patriagani",
+    "password": "1234",
+    "role": "dokter",
+    "isLogin": false
+  }
+]
