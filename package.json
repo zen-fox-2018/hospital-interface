@@ -1,0 +1,34 @@
+[
+  {
+    "_id": 1,
+    "_name": "ahri",
+    "_position": "dokter",
+    "_username": "ahriii",
+    "_password": "987654",
+    "_isLogin": false
+  },
+  {
+    "_id": 2,
+    "_name": "maitreya",
+    "_position": "dokter",
+    "_username": "papermintace",
+    "_password": "67808754",
+    "_isLogin": true
+  },
+  {
+    "_id": 3,
+    "_name": "terra",
+    "_position": "nurse",
+    "_username": "terraaa",
+    "_password": "3456784",
+    "_isLogin": false
+  },
+  {
+    "_id": 4,
+    "_name": "luna",
+    "_position": "nurse",
+    "_username": "lunaFreya",
+    "_password": "567976",
+    "_isLogin": false
+  }
+]
