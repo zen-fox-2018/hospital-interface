@@ -1,0 +1,23 @@
+{
+  "name": "hospital-interface",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zen-fox-2018/hospital-interface.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zen-fox-2018/hospital-interface/issues"
+  },
+  "homepage": "https://github.com/zen-fox-2018/hospital-interface#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3"
+  }
+}

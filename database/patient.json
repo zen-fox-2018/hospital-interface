@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "januar",
+    "diagnosis": [
+      "sakit jiwa"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "sia",
+    "diagnosis": [
+      "sakit hati"
+    ]
+  },
+  {
+    "id": 1,
+    "name": "sia",
+    "diagnosis": [
+      "sakit hati"
+    ]
+  }
+]

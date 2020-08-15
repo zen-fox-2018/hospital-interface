@@ -1,0 +1,32 @@
+[
+  {
+    "username": "budi",
+    "password": "$2a$10$6ACfw3oaByFPs.DOP2HwketvhFpj5razZKQ8nuawjv1Z09F0ZgqSa",
+    "role": "dokter",
+    "login": false
+  },
+  {
+    "username": "budi9",
+    "password": "12345",
+    "role": "dokter",
+    "login": false
+  },
+  {
+    "username": "angga",
+    "password": "$2a$10$DGI3jfnTWPxeIqDQxN6NPetPb1ilsSWlz07myWy3JkxM3B2WJWdDW",
+    "role": "admin",
+    "login": false
+  },
+  {
+    "username": "rama",
+    "password": "$2a$10$0DywHLqwaiNLiTP6yaGaZuXa9..rwKyidmaVhYjtQFGZQPigC0Z12",
+    "role": "admin",
+    "login": false
+  },
+  {
+    "username": "rama2",
+    "password": "$2a$10$suizVfq.QYTqwQvDBG/VUu0yD2UoqR7HdqAj1cH7qGj.qvx5PWpnG",
+    "role": "admin",
+    "login": true
+  }
+]
